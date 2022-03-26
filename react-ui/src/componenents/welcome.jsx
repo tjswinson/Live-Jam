@@ -1,26 +1,29 @@
+import React from "react";
+
 const Welcome = () => {
     return (
       <>
         <h2>Welcome to Live Jam</h2>
         <p>The interactive concert tracker</p>
-      </>
+      
+      <form>
 
+<div className="login">
+ <label>User Name</label>
+<input type="text" name="username" className="form-control" placeholder="Enter user name" autoComplete="false"/>
+</div>
+<div className="login">
+<label>Password</label>
+<input type="password" name = "password" className="form-control" placeholder = "Enter password" autoComplete="false"/>
+</div>
 
+<button type="submit" className="btn btn-primary btn-block">Submit</button>
+</form>
+</>
 
     )
   }
-  //const handleLogin = () => {
-      // perform the login request
- // }
   
- // render () {
-  //  return (
-//<div>
-   // <div className="login">
-    //<input type="text" name="username" placeholder="Enter user name" autoComplete="false"></input>
-    //<input type="text" name = "password" placeholder = "Enter password" autoComplete="false"></input>
-   // </div>
-   // </div>
- //);
- // }
+    
+
   export default Welcome;
