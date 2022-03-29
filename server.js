@@ -13,7 +13,7 @@ global.users = [
 
 server.use(express.json())
 
-server.post('../componenents/welcome', (req, res) => {
+server.post('/Login', (req, res) => {
 
   const username = req.body.username
     const password = req.body.password
