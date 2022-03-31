@@ -6,6 +6,30 @@ const path = require('path');
 const server = express();
 const { PORT } = process.env
 
+//CORS
+server.use(function(req, res, next) {
+  const allowList = [
+    "http://localhost:3000",
+  ];
+  const origin = req.headers.origin;
+  if (allowList.indexOf(origin) > -1) {
+    res.header("Access-Control-Allow-Origin", origin);
+  }
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Accept, Authorization, Content-Type, Origin, X-Requested-With"
+  );
+  res.header("Access-Control-Allow-Methods", "DELETE, GET, PATCH, POST, PUT");
+  res.header("Access-Control-Allow-Credentials", true);
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204);
+  }
+  next();
+});
+
+
+
 global.users = [
   { username: 'johndoe', password: 'password' },
   { username: 'marydoe', password: 'password' }
@@ -13,7 +37,7 @@ global.users = [
 
 server.use(express.json())
 
-server.post('/Login', (req, res) => {
+server.post('/login', (req, res) => {
 
   const username = req.body.username
     const password = req.body.password
@@ -42,7 +66,7 @@ server.get('/heartbeat',(req, res) => {
 
 
 server.get('*', (req, res) =>{
-  res.sendFile(path.resolve(_dirname + './react-ui/build/index.html'));
+  res.sendFile(path.resolve(__dirname + '/react-ui/build/index.html'));
 })
 
 server.listen(PORT, () => {
