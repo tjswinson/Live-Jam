@@ -1,4 +1,4 @@
-import { GET_USERNAME } from './actionTypes';
+import { GET_USERNAME, SET_AUTH } from './actionTypes';
 
 export const updateUsername = username => {
   return {
@@ -9,3 +9,13 @@ export const updateUsername = username => {
       }
     }
   };
+  export const setAuth = () => {
+    let isLoggedIn = false
+    if (localStorage.getItem("jsonwebtoken")){
+           isLoggedIn = true
+       }
+       return{
+         type:SET_AUTH,
+         payload:isLoggedIn
+       }
+  }

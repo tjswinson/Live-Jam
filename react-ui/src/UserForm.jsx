@@ -23,45 +23,38 @@ return (
     <form onSubmit={handleSubmit} >
     <div className="user-field">
       <label>
-        <span>Full name</span>
-        <input onChange={handleChange} data-keyname="name" value={user.name || ''} />
+        <span>First name</span>
+        <input onChange={handleChange} data-keyname="name" value={user.fname || ''} />
       </label>
     </div>
     <div className="user-field">
       <label>
-        <span>Address</span>
-        <input onChange={handleChange} data-keyname="address" value={user.address || ''} />
+        <span>Last name</span>
+        <input onChange={handleChange} data-keyname="Last name" value={user.lname || ''} />
       </label>
     </div>
-    <div className="user-field">
-      <label>
-        <span>City</span>
-        <input onChange={handleChange} data-keyname="city" value={user.city || ''} />
-      </label>
-    </div>
-    <div className="user-field">
-      <label>
-        <span>State</span>
-        <input onChange={handleChange} data-keyname="state" value={user.state || ''} />
-      </label>
-    </div>
-    <div className="user-field">
-      <label>
-        <span>Zip Code</span>
-        <input onChange={handleChange} data-keyname="zipcode" value={user.zipcode || ''} />
-      </label>
-    </div>
-    
     <div className="user-field">
       <label>
         <span>Email</span>
         <input onChange={handleChange} data-keyname="email" value={user.email || ''} />
       </label>
             </div>
-
+    <div className="user-field">
+      <label>
+        <span>Login</span>
+        <input onChange={handleChange} data-keyname="login" value={user.city || ''} />
+      </label>
+    </div>
+    <div className="user-field">
+      <label>
+        <span>Password</span>
+        <input onChange={handleChange} data-keyname="password" value={user.password || ''} />
+      </label>
+    </div>
+    
             <br></br>
 
-            <button className="btn" type="submit">Submit</button>
+            <button className="btn" type="submit">Register</button>
     </form>
 );
 };
