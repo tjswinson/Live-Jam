@@ -1,11 +1,10 @@
 'use strict';
 
-const { password } = require("pg/lib/defaults");
 
 module.exports = {
 
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('Users',[
+    await queryInterface.bulkInsert('Customers',[
       {
         firstname: 'John',
         lastname: 'Doe',

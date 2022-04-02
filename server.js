@@ -2,6 +2,22 @@ require('dotenv').config();
 const express = require('express');
 const jwt = require('jsonwebtoken')
 const path = require('path');
+const {Sequelize} = require('sequelize');
+
+const db = new Sequelize('livejam_dev', 'postgres', 'august75', {
+  host: 'localhost',
+  dialect: 'postgres'
+});
+
+db
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+      })
+
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 const server = express();
 const { PORT } = process.env
@@ -30,10 +46,10 @@ server.use(function(req, res, next) {
 
 
 
-global.users = [
-  { username: 'johndoe', password: 'password' },
-  { username: 'marydoe', password: 'password' }
-]
+//global.users = [
+  //{ username: 'johndoe', password: 'password' },
+  //{ username: 'marydoe', password: 'password' }
+//]
 
 server.use(express.json())
 
@@ -42,7 +58,8 @@ server.post('/login', (req, res) => {
   const username = req.body.username
     const password = req.body.password
 
-    const user = users.find((user) => user.username == username && user.password == password)
+    const user = db.Customer.find((user) => user.username == username && user.password == password)
+  console.log(user)
     if (user) {
         
         const token = jwt.sign({ username: user.username }, 'SECRETKEY')

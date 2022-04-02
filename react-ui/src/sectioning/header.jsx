@@ -13,6 +13,7 @@ const Header = () => {
                 <ul className="navs navs--items">
                     <li><NavLink to="/Login">Login</NavLink></li>
                      <li><NavLink to="/UserForm">Register</NavLink></li>
+                     <li><NavLink to="/EventSearch">Search</NavLink></li>
                 </ul>
             </nav>
             

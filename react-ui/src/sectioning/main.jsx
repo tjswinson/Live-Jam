@@ -3,6 +3,7 @@ import Welcome from "../welcome";
 import Login from "../Login";
 import UserForm from '../UserForm';
 import { useSelector } from 'react-redux';
+import EventSearch from '../EventSearch';
 
 const Main = () => {
     const navigate = useNavigate();
@@ -22,7 +23,7 @@ const isLoggedIn = useSelector(state => state.isLoggedIn)
                  <Route path="/" element={<Welcome/>} />
                  <Route path='/Login' element={<Login/>} />
                  <Route path='/UserForm' element={<UserForm/>} />
-                 
+                 <Route path='/EventSearch' element={<EventSearch/>} />
               </Routes>
           </div>
       
