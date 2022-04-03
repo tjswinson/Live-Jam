@@ -3,8 +3,9 @@ const express = require('express');
 const jwt = require('jsonwebtoken')
 const path = require('path');
 const {Sequelize} = require('sequelize');
+const models = require('./models');
 
-const db = new Sequelize('livejam_dev', 'postgres', 'august75', {
+const db = new Sequelize('livejam_dev', 'dev_admin', 'admin', {
   host: 'localhost',
   dialect: 'postgres'
 });
@@ -53,12 +54,18 @@ server.use(function(req, res, next) {
 
 server.use(express.json())
 
-server.post('/login', (req, res) => {
+server.post('/login', async (req, res) => {
 
-  const username = req.body.username
-    const password = req.body.password
+  const {password, username} = req.body;
 
-    const user = db.Customer.find((user) => user.username == username && user.password == password)
+  const withCreds = {
+    where: {
+      password,
+      login: username
+    }
+  };
+
+  const user = await models.Customer.findOne(withCreds)
   console.log(user)
     if (user) {
         

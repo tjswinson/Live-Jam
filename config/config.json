@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "august75",
+    "username": "dev_admin",
+    "password": "admin",
     "database": "livejam_dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
