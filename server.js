@@ -4,6 +4,9 @@ const jwt = require('jsonwebtoken')
 const path = require('path');
 const {Sequelize} = require('sequelize');
 const models = require('./models');
+const fetch = require("node-fetch");
+const {API_KEY} = process.env;
+
 
 const db = new Sequelize('livejam_dev', 'postgres', 'august75', {
   host: 'localhost',
@@ -93,6 +96,16 @@ server.get('/heartbeat',(req, res) => {
     })
 });
 
+server.get("/events", async (req, res) => {
+  const {keyword, postalCode} = req.query;
+ // const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${API_KEY}&units=imperial`;
+const url = `https://app.ticketmaster.com/discovery/v2/events.json? size=1,countryCode=US&apikey=${API_KEY}&keyword=${keyword}&postalCode=${postalCode}`;
+
+  const response = await fetch(url);
+  const data = await response.json();
+
+      res.json( data )
+})
 
 server.get('*', (req, res) =>{
   res.sendFile(path.resolve(__dirname + '/react-ui/build/index.html'));

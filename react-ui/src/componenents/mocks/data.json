@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "event": "music festival",
+      "startDate": "April 23",
+      "endDate": "April 25",
+      "cost": "$45"
+    },
+    {
+      "id": 2,
+      "event": "eating festival",
+      "startDate": "May 5",
+      "endDate": "December 8",
+      "cost": "$999"
+    },
+    {
+      "id": 3,
+      "event": "travel festival",
+      "startDate": "May 9",
+      "endDate": "May 10",
+      "cost": "$10"
+    },
+    {
+      "id": 4,
+      "event": "screaming festival",
+      "startDate": "June 1",
+      "endDate": "June 3",
+      "cost": "free"
+    },
+    {
+      "id": 5,
+      "event": "hiking festival",
+      "startDate": "July 12",
+      "endDate": "July 18",
+      "cost": "$105"
+    }
+  ]

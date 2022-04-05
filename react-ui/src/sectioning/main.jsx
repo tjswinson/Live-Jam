@@ -3,15 +3,13 @@ import Welcome from "../welcome";
 import Login from "../Login";
 import UserForm from '../UserForm';
 import { useSelector } from 'react-redux';
-import EventSearch from '../EventSearch';
+import EventSearch from "../componenents/EventSearch";
 
 const Main = () => {
     const navigate = useNavigate();
 const isLoggedIn = useSelector(state => state.isLoggedIn) 
 
-
-
-    
+   
     return (
 
 
