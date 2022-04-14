@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import './styles.css';
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
+import EventSearch from './componenents/EventSearch';
+
 
 function Login(props) 
 {
+  const navigateTo = useNavigate();
   const [credentials, setCredentials] = useState({
     username:'', password:''
   })
@@ -17,6 +21,7 @@ function Login(props)
 
   const handleLogin = (e) => {
     e.preventDefault()
+    navigateTo('/EventSearch');
       //perform login request
 
       axios.post('http://localhost:8080/login',{
@@ -26,7 +31,7 @@ function Login(props)
         if(response.data) {
           const token = response.data.token
           localStorage.setItem('jsonwebtoken', token)
-          //props.history.push('/customerInfo')
+         
           localStorage.setItem('username', credentials.username)
           //props.onLoggedIn()
 
@@ -43,20 +48,19 @@ function Login(props)
   return (
 
      <>
-              
+      <div className="login-box">       
       <form onSubmit={handleLogin}>
 
 <div className="login">
- <label>User Name</label>
-<input type="text" value={credentials.username} onChange={handleChange} name="username"  className="form-control" placeholder="Enter user name" />
+<input type="text" value={credentials.username} onChange={handleChange} name="username"  className="form-control" placeholder="Username" />
 </div>
 <div className="login">
-<label>Password</label>
-<input type="password" value={credentials.password} onChange={handleChange} name="password" className="form-control" placeholder ="Enter password" />
+<input type="password" value={credentials.password} onChange={handleChange} name="password" className="form-control" placeholder ="Password" />
 </div>
 
-<button  className="login btn">Login</button>
+<button  className="login-btn">Login</button>
 </form>
+</div> 
 </>
 
   )  

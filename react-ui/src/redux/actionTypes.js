@@ -1,2 +1,5 @@
 export const GET_USERNAME = 'GET_USERNAME';
 export const SET_AUTH = 'SET_AUTH';
+export const SET_SELECTED_EVENT = 'SET_SELECTED_EVENT';
+ export const SET_SEARCH_RESULTS = 'SET_SEARCH_RESULTS';
+export const SET_FAVORITES = 'SET_FAVORITES';

@@ -44,3 +44,67 @@ html {
       margin: 0 auto;
       width: 90%;
   }
+
+  .form{
+        border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .form-control{
+    border-radius: 100px;
+    width: 200px;
+  height: 40px;
+  font-weight: bold;
+  align-self: center;
+  
+
+  }
+
+  .login-box{
+    background-color: rgb(46, 34, 179);
+    border-radius: 30%;
+border: 30%;
+width: 400px;
+height: 300px;
+
+
+
+  }
+
+  .login{
+    
+    height: 50px;
+   border-radius: 60% / 10%;
+    width: fit-content;
+      
+    font-weight: bold;
+
+               
+
+  }
+
+  .login-btn{
+    width: 50%;
+    
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	color: #fff;
+	background: #851a8a;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 20px;
+  margin-bottom: 30px;
+	outline: none;
+	border: none;
+	border-radius: 50px;
+	
+}
+button:hover{
+	background: #6d44b8;
+}
+
+  
