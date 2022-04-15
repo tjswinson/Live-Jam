@@ -4,7 +4,7 @@ import {GET_USERNAME,
   SET_SEARCH_RESULTS,
   SET_FAVORITES
 } from './actionTypes';
-//import { } from './actionTypes';
+import { } from './actionTypes';
 //import mockData from '../mocks/data.json';
 
 

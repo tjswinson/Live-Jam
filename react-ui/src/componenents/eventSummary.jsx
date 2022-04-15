@@ -1,25 +1,43 @@
 import React, { useState } from 'react';
 import EventDetail from './eventDetail';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, Outlet } from 'react-router-dom';
+import { setSelectedEvent } from '../redux/actions';
 
-const EventSummary = ({events}) => {
+const EventSummary = () => {
+  const dispatch = useDispatch();
+  const navigateTo = useNavigate();
+  const events = useSelector(state => state.searchResults);
+
+ // const blah = useSelector(state => state.selectedEvent);
 
   const [selectedEventDetail, setSelectedEventDetail] = useState();
 
   const handleClick = (e) => {
     const id = e.target.dataset.id;
     const event = events.find(x => x.id == id);
-    setSelectedEventDetail(event);
+    dispatch(setSelectedEvent(event));
+    navigateTo(`${id}`)
   };
 
-  const searchedEvents = events.map((event, index) => {
-    return <li key={index} data-id={event.id} onClick={handleClick}>{event.event}</li>;
+  const searchedEvents = events && events.map((event, index) => {
+    return (
+      <li
+        data-id={event.id}
+        key={index}
+        onClick={handleClick}
+      >
+        {event.event}
+      </li>
+    );
   });
   return (
     <>
-      <ul className="events">{searchedEvents}</ul>
-      {selectedEventDetail && <EventDetail event={selectedEventDetail} />}
+      {searchedEvents && <ul className="events">{searchedEvents}</ul>}
+      <Outlet />
     </>
   )
 };
+
 
 export default EventSummary;

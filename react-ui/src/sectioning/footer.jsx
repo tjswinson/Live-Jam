@@ -1,11 +1,13 @@
+import React from 'react';
+
 const Footer = () => {
     return (
-        <footer>
-            <div className="y-wrap">
-                <p> Built in 2022</p>
-            </div>
+        <div className="footer">
+        <footer className="y-wrap">
+          Footer
         </footer>
-    )
+      </div>
+    );
 };
 
 export default Footer;

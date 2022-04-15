@@ -4,20 +4,18 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
     return (
-        <header>
-            <div className="y-wrap">
-                <h1>Live Jam</h1>
-            </div>
-               <nav className="y-wrap navs navs--justify">
-                <div><NavLink to="/">Home</NavLink></div>
-                <ul className="navs navs--items">
-                    <li><NavLink to="/Login">Login</NavLink></li>
-                     <li><NavLink to="/UserForm">Register</NavLink></li>
-                     <li><NavLink to="/EventSearch">Search</NavLink></li>
-                </ul>
-            </nav>
-            
+        <div className="header">
+            <h1>Live Jam</h1>
+        <header className="y-wrap">
+          <nav className="navs">
+            <NavLink to="/">Home</NavLink>
+            <ul>
+              <li><NavLink to="/events">Search Results</NavLink></li>
+              <li><NavLink to="/favorites">Favorites</NavLink></li>
+            </ul>
+          </nav>
         </header>
+      </div>
     )
 };
 export default Header;

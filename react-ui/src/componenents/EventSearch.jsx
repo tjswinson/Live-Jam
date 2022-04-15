@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { setSearchResults } from '../redux/actions';
 import EventSummary from './eventSummary';
 import fetch from 'node-fetch';
 //import data from './mocks/data.json';
@@ -21,10 +24,12 @@ function getData(){
 
 
 const EventSearch = () => {
+  const dispatch = useDispatch();
+  const navigateTo = useNavigate();
    
  const [keyword, setKeyword] = useState('');
  const [postalCode, setPostalCode] = useState(''); 
-   const [events, setEvents] = useState([]);
+   //const [events, setEvents] = useState([]);
 
 const handleChange = (e, type) => {
     const val = e.target.value;
@@ -39,8 +44,8 @@ const handleChange = (e, type) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        
-        setEvents(Data);
+        dispatch(setSearchResults(keyword, postalCode));
+    navigateTo('/eventSummary');
     }
     return (
       <>
@@ -49,7 +54,7 @@ const handleChange = (e, type) => {
           <input onChange={(e) => handleChange(e, 'postalCode')} placeholder="postal code" value={postalCode} />
           <button>Search</button>
         </form>
-        <EventSummary events={events} />
+    {/* //<EventSummary events={events} /> */}
       </>
     )
   };
