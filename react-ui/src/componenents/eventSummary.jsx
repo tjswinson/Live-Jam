@@ -9,10 +9,9 @@ const EventSummary = () => {
   const navigateTo = useNavigate();
   const events = useSelector(state => state.searchResults);
 
- // const blah = useSelector(state => state.selectedEvent);
+ 
 
-  const [selectedEventDetail, setSelectedEventDetail] = useState();
-
+  
   const handleClick = (e) => {
     const id = e.target.dataset.id;
     const event = events.find(x => x.id == id);
@@ -27,7 +26,7 @@ const EventSummary = () => {
         key={index}
         onClick={handleClick}
       >
-        {event.event}
+        {event.name}
       </li>
     );
   });

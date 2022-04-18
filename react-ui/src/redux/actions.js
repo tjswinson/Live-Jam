@@ -47,14 +47,12 @@ const fetchSuccess = data => {
   }
 };
 
-export const setSearchResults = (keyword, postalCode) => dispatch => {
-  // this is where you put your http request
-  // note that this is a function that returns another function
-  // which takes in `dispatch` as an argument
-  // it needs this because this is asynchronous
-  // when the promise resolves, you write the following
-  // but with the data that is returned from the promise
- // dispatch(fetchSuccess(mockData));
+export const setSearchResults = (results) => {
+  return {
+type: SET_SEARCH_RESULTS,
+payload: results
+
+  }
 }
 
 export const setFavorite = event => {

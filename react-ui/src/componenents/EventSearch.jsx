@@ -6,30 +6,30 @@ import EventSummary from './eventSummary';
 import fetch from 'node-fetch';
 //import data from './mocks/data.json';
 
-const Data = () => {
-  let [responseObj, setResponseObj] = useState({});
+//const Data = () => {
+  //let [responseObj, setResponseObj] = useState({});
 
-function getData(){
-  fetch("http://localhost:8080/events?keyword=music&postalCode=30303", {
-    "method": "GET",
-    "headers": {}
-
-  })
- .then(data => data.json())
-  .then(response => {
-   console.log(response)
-});
-}
-  }
+  const EventSearch = () => {
+    const dispatch = useDispatch();
+    const navigateTo = useNavigate();
+     
+   const [keyword, setKeyword] = useState('');
+   const [postalCode, setPostalCode] = useState(''); 
+     const [events, setEvents] = useState([]);
 
 
-const EventSearch = () => {
-  const dispatch = useDispatch();
-  const navigateTo = useNavigate();
-   
- const [keyword, setKeyword] = useState('');
- const [postalCode, setPostalCode] = useState(''); 
-   //const [events, setEvents] = useState([]);
+
+const getData = () => {
+  fetch(`http://localhost:8080/events?keyword=${keyword}&postalCode=${postalCode}`)
+    
+        .then(response => response.json())
+        .then(data => setEvents(data._embedded.events))
+          }
+
+
+
+  
+
 
 const handleChange = (e, type) => {
     const val = e.target.value;
@@ -44,8 +44,15 @@ const handleChange = (e, type) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(setSearchResults(keyword, postalCode));
-    navigateTo('/eventSummary');
+        fetch(`http://localhost:8080/events?keyword=${keyword}&postalCode=${postalCode}`)
+    
+        .then(response => response.json())
+        .then(data => {
+          dispatch(setSearchResults(data._embedded.events));
+          navigateTo('/eventSummary');
+        }) 
+
+        
     }
     return (
       <>
@@ -54,12 +61,12 @@ const handleChange = (e, type) => {
           <input onChange={(e) => handleChange(e, 'postalCode')} placeholder="postal code" value={postalCode} />
           <button>Search</button>
         </form>
-    {/* //<EventSummary events={events} /> */}
-      </>
+          </>
     )
-  };
+}
+  
 
-    
+
           
   
     export default EventSearch;
