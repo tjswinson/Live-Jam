@@ -13,10 +13,10 @@ const EventDetail = () => {
 
   return (
     <>
-    <h1>{event.event}</h1>
-          <p>Start Date: {event.startDate}</p>
+    <h1>{event.name}</h1>
+          <p>Start Date: {event.localDate}</p>
       <p>End Date: {event.endDate}</p>
-            <p>Cost: {event.cost}</p>
+            <p>Cost: {event.priceRanges}</p>
             <button onClick={handleClick}>Add to Favorites</button>
     </>
   )
