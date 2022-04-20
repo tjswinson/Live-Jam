@@ -31,7 +31,7 @@ const isLoggedIn = useSelector(state => state.isLoggedIn)
                  <Route path='/Login' element={<Login/>} />
                  <Route path='/UserForm' element={<UserForm/>} />
                  <Route path='/EventSearch' element={<EventSearch/>} />
-                 <Route path='/eventDetail' element={<EventDetail/>} />
+                 <Route path='/events/payload:id' element={<EventDetail/>} />
                  <Route path='/eventSummary' element={<EventSummary/>} />
                  <Route path='/favorites' element={<Favorites/>} />
 

@@ -28,10 +28,6 @@ export const updateUsername = username => {
        }
   }
 
-
-
-
-
 export const setSelectedEvent = event => {
   return {
       type:SET_SELECTED_EVENT,

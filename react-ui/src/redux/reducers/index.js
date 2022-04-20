@@ -3,7 +3,7 @@ import username from './username';
 import auth from './auth'
 import favorites from './favorites';
 import searchResults from './searchResults';
-import selectedEvent from './selectedEvents';
+import selectedEvent from './selectedEvent';
 
 
 
